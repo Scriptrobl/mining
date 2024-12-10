@@ -21,14 +21,15 @@ make
 echo "Starting miner with optimized settings..."
 
 ./xmrig \
-  --url=gulf.moneroocean.stream:10128 \
-  --user=47KaS4N5MH1b3xt71ceoJaPjmepikrgGpSYk3zdXpeLS4XbXsdk7mJji9rjcPRRhaHBs3Rit2rQnC7kqn5DJY6kwLRh3s7m \
-  --pass=x \
-  --rig-id=your-rig-name \
-  --cpu-priority=5 \
-  --max-threads=100% \
-  --av=1 \
-  --donate-level=1 \
-  --threads=auto \
-  --randomx-mode=fast \
-  --randomx-1gb-pages
+  --url=gulf.moneroocean.stream:10128 \    # Địa chỉ pool Monero
+  --user=47KaS4N5MH1b3xt71ceoJaPjmepikrgGpSYk3zdXpeLS4XbXsdk7mJji9rjcPRRhaHBs3Rit2rQnC7kqn5DJY6kwLRh3s7m \  # Địa chỉ ví Monero của bạn
+  --pass=x \                                # Mật khẩu cho pool (thường là 'x')
+  --rig-id=your-rig-name \                  # Tên rig của bạn
+  --cpu-priority=5 \                        # Ưu tiên CPU (5 là tốt cho việc không làm chậm máy tính)
+  --max-threads=100% \                      # Sử dụng toàn bộ luồng CPU có sẵn
+  --av=1 \                                  # Bật AVX nếu CPU hỗ trợ
+  --donate-level=1 \                        # Giảm mức đóng góp để tối đa hóa hiệu suất (1% là đủ)
+  --threads=auto \                          # Tự động xác định số lượng luồng cho CPU
+  --randomx-mode=fast \                     # Chế độ tối ưu hóa RandomX cho hiệu suất cao
+  --randomx-1gb-pages \                     # Sử dụng các trang bộ nhớ 1GB (nếu hỗ trợ)
+  --max-cpu-usage=90                        # Sử dụng tối đa 90% CPU để tránh quá tải hệ thống
